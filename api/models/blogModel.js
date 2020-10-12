@@ -2,7 +2,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
 var ArticleSchema = new Schema({
   title: {
     type: String,
@@ -25,13 +24,11 @@ var ArticleSchema = new Schema({
     type: Boolean,
     default: false
   },
-
   tag: {
     type: [{
       type: String,
       default: ['attualità']
     }],
-    
   }
 });
 
