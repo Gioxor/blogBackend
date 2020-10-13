@@ -28,10 +28,10 @@ exports.read_an_article = function(req, res) {
   };
 
   exports.update_an_article = function(req, res) {
-    var query = req.query;
+    let query = req.query;
     Article.findOneAndUpdate({_id: req.params.articleId}, 
                           query, {new: true}, 
-                          function(err, task) {
+                          function(err, article) {
       if (err)
         res.send(err);
       res.json(article);
@@ -40,8 +40,9 @@ exports.read_an_article = function(req, res) {
 
 
   exports.patch_an_article = function(req, res) {
-    Article.update({_id: req.params.articleId}, 
-      { $set: { "public": false } }, {new: true},
+    let query = req.body;
+    Article.findOneAndUpdate({_id: req.params.articleId},
+      { $set: query }, {new: true},
                           function(err, article) {
       if (err)
         res.send(err);
