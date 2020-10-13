@@ -40,7 +40,7 @@ exports.read_an_article = function(req, res) {
 
 
   exports.patch_an_article = function(req, res) {
-    Task.update({_id: req.params.articleId}, 
+    Article.update({_id: req.params.articleId}, 
       { $set: { "public": false } }, {new: true},
                           function(err, article) {
       if (err)

@@ -26,7 +26,7 @@ var ArticleSchema = new Schema({
   },
   tag: {
     type: [{
-      type: String,
+      type: [String],
       default: ['attualità']
     }],
   }
